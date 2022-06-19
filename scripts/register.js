@@ -37,3 +37,17 @@ registrarUsuario(Usuarios, usuario1);
 
 console.log("Se ha registrado satisfactoriamente.");
 // console.log(Usuarios);
+
+let btnLogin = document.querySelector(".section .form #login");
+console.log(btnLogin);
+
+btnLogin.onclick = (e) => { e.preventDefault(); 
+                            let email = prompt("Email?");
+                            let pass = prompt("Contraseña?");
+                            const resultado = Usuarios.find((user)=> user.email === email);
+                            if(resultado.pass === pass){
+                                console.log("Contraseña correcta, iniciando sesion...");
+                            }else{
+                                console.log("Contraseña incorrecta.")
+                            }
+                            };
