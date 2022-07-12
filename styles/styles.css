@@ -1,0 +1,147 @@
+/* Resets */
+:root{
+    /* Colors */
+    --primary-color: #181818;
+    --secondary-color: #f0f0f0;
+    --tertiary-color: #ff3f3f;
+
+    /* Typography */
+    --primary-logo-type: 'Reggae One', cursive;
+    --secondary-logo-type: 'Fredoka One', cursive;
+    --tertiary-logo-type: 'Permanent Marker', cursive;
+    --main-typography: 'Oswald', sans-serif;
+}
+/* Box Model */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+/* Media */
+img, picture, video, iframe, figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+svg{
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+/* Links */
+a{
+    display: block;
+}
+p a{
+    display: inline;
+}
+/* List */
+li{
+    list-style-type: none;
+}
+/* Scroll */
+html{
+    scroll-behavior: smooth;
+}
+/* Text */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em{
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+/* Selection */
+::selection{
+    background-color: var(--tertiary-color);
+    color: var(--secondary-color);
+}
+/* Forms */
+form, input, textarea, select, button, label{
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+}
+table, tr, td{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* Body general */
+body{
+    min-height: 100vh;
+    font-size: 100%;
+    font-family: var(--main-typography) ;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    line-height: 1.4rem;
+}
+
+/* Header */
+.header{
+    width: 100%;
+    background-color: var(--tertiary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+/* Logo */
+.logoImg{
+    width: 4.5rem;
+    display: inline-block;
+}
+.logoLink{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.logoTxtSecondary{
+    font-family: var(--secondary-logo-type);
+    font-weight: bold;
+    font-size: 2.25rem;
+}
+.logoTxtPrimary{
+    font-family: var(--primary-logo-type);
+    font-size: 1.75rem;
+}
+
+/* Search */
+.search{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchInput{
+    width: 55%;
+    height: 2.5rem;
+    border: 1px solid #ff0000;
+    background-color: var(--secondary-color);
+}
+.searchInput::placeholder{
+    padding: 1rem;
+}
+.searchButton{
+    width: 2.5rem;
+    border: 1px solid #ff0000;
+    background-color: #ff0000;
+}
+.searchButton img{
+    color: var(--secondary-color);
+}
+
+/* Notification */
+.notification{
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+}
+.notificationButton{
+    width: 2.8rem;
+}
