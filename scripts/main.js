@@ -9,15 +9,22 @@ class Anime{
     }
 };
 
-// const animes = [new Anime("Dragon Ball Super", "./media/imgs/portada_dbs.jpg", "La serie se desarrollara en la tierra, tiempo después de la lucha terrible contra Majin Buu. Por órdenes de Milk, Goku trabaja fuertemente todos los días en la agricultura. Sin embargo también tiene algunos momentos para entrenar.", "Toei Animation", "Shonen", "https://jkanime.net/dragon-ball-super/1/"),
-//                 new Anime("Naruto Shippuden", "./media/imgs/portada_narutoshippuden.jpg", "Pasan dos años después de que Naruto y Sakura se fueran a entrenar cada uno con su maestro sannin, en este caso, Naruto se fue con Jiraya y Sakura con Tsunade. Ya tienen 14 años y son unos geniales ninjas.", "Studio Pierrot", "Shonen", "https://jkanime.net/naruto-shippuden/1/"),
-//                 new Anime("Komi-san wa, Comyushou desu", "./media/imgs/portada_komisan.jpg", "Es el primer día de Shouko Komi en la prestigiosa escuela secundaria privada Itan, y ya ha alcanzado el estatus de Madonna de la escuela. Con el pelo largo y negro y una apariencia alta y elegante, capta la atención de cualquiera que se cruce con ella. Sin embargo, solo hay un problema: a pesar de su popularidad, Shouko es terrible para comunicarse con los demás.", "OLM", "Comedia", "https://jkanime.net/komi-san-wa-comyushou-desu/1/")];
+// const animes = [new Anime("Dragon Ball Super", "./media/imgs/portada_dbs.jpg", "La serie se desarrollara en la tierra, tiempo después de la lucha terrible contra Majin Buu. Por órdenes de Milk, Goku trabaja fuertemente todos los días en la agricultura. Sin embargo también tiene algunos momentos para entrenar.", "Toei Animation", "Shonen", "./media/video/trailer_dbs.mp4"),
+//                 new Anime("Naruto Shippuden", "./media/imgs/portada_narutoshippuden.jpg", "Pasan dos años después de que Naruto y Sakura se fueran a entrenar cada uno con su maestro sannin, en este caso, Naruto se fue con Jiraya y Sakura con Tsunade. Ya tienen 14 años y son unos geniales ninjas.", "Studio Pierrot", "Shonen", "./media/video/trailer_narutoshipp.mp4"),
+//                 new Anime("Komi-san wa, Comyushou desu", "./media/imgs/portada_komisan.jpg", "Es el primer día de Shouko Komi en la prestigiosa escuela secundaria privada Itan, y ya ha alcanzado el estatus de Madonna de la escuela. Con el pelo largo y negro y una apariencia alta y elegante, capta la atención de cualquiera que se cruce con ella. Sin embargo, solo hay un problema: a pesar de su popularidad, Shouko es terrible para comunicarse con los demás.", "OLM", "Comedia", "./media/video/trailer_komisan.mp4")];
 // localStorage.setItem("animes",JSON.stringify(animes));
 const animes = JSON.parse(localStorage.getItem("animes"));
-console.log(animes);
+// console.log(animes);
 
 const animesCont = document.getElementById("contenedorDeAnimes");
-                
+
+const searchNotification = (text) =>{
+    Toastify({
+        text: text,
+        duration:1500,
+    }).showToast();
+}
+
 function mostrarAnimes(animes){
     animesCont.innerHTML = "";
     // animesCont.classList.add("");
@@ -49,15 +56,20 @@ const search =  () =>{
             divAnime.innerHTML = `
                 <img class="portadas" src="${anime.portada}" alt="${anime.titulo}">
                 <h3>${anime.titulo}</h3>
-                <a href="${anime.url}" class="">Ver anime</a>
+                <a href="${anime.url}" id="watchAnime" class="">Ver anime</a>
                 `;
             animesCont.appendChild(divAnime);
+            searchNotification(`Mostrando ${anime.titulo}`);
+            if (inputValue === ""){
+                searchNotification("Ingrese un nombre de anime...");
+                mostrarAnimes(animes);
+            }
         }
     })
     if(animesCont.innerHTML === ""){
-        animesCont.innerHTML = "Lo siento, todavia no contamos con ese anime T.T";
+        searchNotification("Lo siento, todavia no contamos con ese anime T.T");
     }
 };
 
 searchButton.addEventListener("click", search);
-searchInput.addEventListener("keyup", search);
+// searchInput.addEventListener("keyup", search);

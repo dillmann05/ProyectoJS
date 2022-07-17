@@ -20,7 +20,7 @@
     vertical-align: baseline;
 }
 /* Media */
-img, picture, video, iframe, figure{
+img, picture, iframe, figure{
     max-width: 100%;
     width: 100%;
     display: block;
