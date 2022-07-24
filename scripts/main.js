@@ -12,9 +12,15 @@ class Anime{
 // const animes = [new Anime("Dragon Ball Super", "./media/imgs/portada_dbs.jpg", "La serie se desarrollara en la tierra, tiempo después de la lucha terrible contra Majin Buu. Por órdenes de Milk, Goku trabaja fuertemente todos los días en la agricultura. Sin embargo también tiene algunos momentos para entrenar.", "Toei Animation", "Shonen", "./media/video/trailer_dbs.mp4"),
 //                 new Anime("Naruto Shippuden", "./media/imgs/portada_narutoshippuden.jpg", "Pasan dos años después de que Naruto y Sakura se fueran a entrenar cada uno con su maestro sannin, en este caso, Naruto se fue con Jiraya y Sakura con Tsunade. Ya tienen 14 años y son unos geniales ninjas.", "Studio Pierrot", "Shonen", "./media/video/trailer_narutoshipp.mp4"),
 //                 new Anime("Komi-san wa, Comyushou desu", "./media/imgs/portada_komisan.jpg", "Es el primer día de Shouko Komi en la prestigiosa escuela secundaria privada Itan, y ya ha alcanzado el estatus de Madonna de la escuela. Con el pelo largo y negro y una apariencia alta y elegante, capta la atención de cualquiera que se cruce con ella. Sin embargo, solo hay un problema: a pesar de su popularidad, Shouko es terrible para comunicarse con los demás.", "OLM", "Comedia", "./media/video/trailer_komisan.mp4")];
-// localStorage.setItem("animes",JSON.stringify(animes));
+
+const animesURL = "http://127.0.0.1:5500/data/animes.json";
+
+fetch(animesURL)
+    .then(res=>res.json())
+    .then(data=>{localStorage.setItem("animes",JSON.stringify(data))});
+
 const animes = JSON.parse(localStorage.getItem("animes"));
-// console.log(animes);
+// console.log(JSON.stringify(animes));
 
 const animesCont = document.getElementById("contenedorDeAnimes");
 
